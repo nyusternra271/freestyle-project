@@ -1,2 +1,6 @@
 flash
 sendgrid
+python-dotenv
+requests
+pandas
+xmltodict

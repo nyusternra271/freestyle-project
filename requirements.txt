@@ -3,5 +3,4 @@ sendgrid
 python-dotenv
 requests
 pandas
-xmltodict
 plotly

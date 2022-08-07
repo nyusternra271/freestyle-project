@@ -5,10 +5,15 @@ import requests
 import json
 import time
 import pandas
+import os
+from dotenv import load_dotenv
+load_dotenv
+
 
 
 # get keys
-rapid_api_key = getpass("Please input your API key: ")
+#rapid_api_key = getpass("Please input your API key: ")
+rapid_api_key = os.getenv("API_KEY")
 city = input("Please enter a city in: ")
 state = input("Please enter a state: ")
 search_str = city + ', ' + state
@@ -43,7 +48,8 @@ response_json = response.json()
 response_json
 
 # View Data
-prop_sale = pandas.json_normalize(data=response_json['results'])
+prop_sale = pandas.json_normalize(data=response_json['message'])
+#print(response_json.keys())
 print('Num of rows:', len(prop_sale))
 print('Num of cols:', len(prop_sale.columns))
 prop_sale

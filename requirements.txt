@@ -1,4 +1,4 @@
-flash
+flask
 sendgrid
 python-dotenv
 requests

@@ -1,14 +1,13 @@
 from getpass import getpass
-from pandas import read_csv, read_json
-from plotly.express import line
+from pandas import read_csv, read_json, json_normalize
+from sendgrid import SendGridAPIClient
 import requests
 import json
 import time
-import pandas
+#import pandas
 import os
 from dotenv import load_dotenv
-load_dotenv
-
+load_dotenv()
 
 
 # get keys
@@ -45,12 +44,12 @@ headers = {
 response = requests.request("GET", url, headers=headers, params=querystring)
 
 response_json = response.json()
-response_json
+#print(response_json)
 
 # View Data
-prop_sale = pandas.json_normalize(data=response_json['message'])
-#print(response_json.keys())
+prop_sale = json_normalize(data=response_json['results'])
+print(response_json.keys())
 print('Num of rows:', len(prop_sale))
 print('Num of cols:', len(prop_sale.columns))
-prop_sale
+print(prop_sale)
 # 

@@ -55,8 +55,8 @@ print(prop_sale)
 message = Mail(
     from_email='razi.ahmad1@gmail.com',
     to_emails='razi.ahmad1@gmail.com',
-    subject='Zillow Property Update',
-    html_content='<strong>First row of data:</strong>' + prop_sale[0])
+   subject='Zillow Property Update',
+   html_content='<strong>First row of data:</strong>' +str(prop_sale.head()))
 try:
     sg = SendGridAPIClient(os.environ.get('SENDGRID_API_KEY'))
     response = sg.send(message)
@@ -64,4 +64,4 @@ try:
     print(response.body)
     print(response.headers)
 except Exception as e:
-    print(e.message)
+   print(e.message)

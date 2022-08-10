@@ -1,7 +1,7 @@
 from getpass import getpass
 from pandas import read_csv, read_json, json_normalize
 from sendgrid import SendGridAPIClient
-from sendgrid.helpers.mail import (Mail, Attachment, FileContent, FileName, FileType, Disposition, ContentId)
+from sendgrid.helpers.mail import (Mail, Attachment, FileContent, FileName, FileType, Disposition, ContentId, To)
 import requests
 import json
 import time
@@ -13,19 +13,16 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+print("WELCOME REAL ESTATE INVESTOR")
 
+print("-------------------")
 
-
-# get keys
-#rapid_api_key = getpass("Please input your API key: ")
 rapid_api_key = os.getenv("RAPID_API_KEY")
-city = input("Please enter a city in: ")
+city = input("Please enter a city (not Austin, TX): ")
 state = input("Please enter a state: ")
+recipient_address = input("Please enter your email address:")
 search_str = city + ', ' + state
 print('Search string:', search_str)
-
-#c7fe818c2amshbc9b51c74fe5a8ep1983d3jsn15c748e613b8
-#https://zillow56.p.rapidapi.com/search
 
 url = "https://zillow56.p.rapidapi.com/search"
 
@@ -50,18 +47,20 @@ response_json = response.json()
 
 # View Data
 prop_sale = json_normalize(data=response_json['results'])
-print(response_json.keys())
-print('Num of rows:', len(prop_sale))
-print('Num of cols:', len(prop_sale.columns))
-print(prop_sale)
-# 
-prop_sale_csv = prop_sale.to_csv(index=False)
-print(prop_sale_csv)
+
+#print('Num of rows:', len(prop_sale))
+#print('Num of cols:', len(prop_sale.columns))
+
+prop_sale_subset = prop_sale[['country','state', 'city', 'zipcode' , 'streetAddress', 'homeType', 'price','lotAreaValue', 'livingArea', 'bathrooms', 'bedrooms', 'taxAssessedValue', 'rentZestimate', 'priceChange', 'priceReduction']]
+
+prop_sale_filtered = prop_sale_subset.dropna(subset=['priceReduction'])
+print(prop_sale_filtered)
+prop_sale_csv = prop_sale_filtered.to_csv(index=False)
 message = Mail(
     from_email='razi.ahmad1@gmail.com',
-    to_emails='razi.ahmad1@gmail.com',
+    to_emails=recipient_address,
     subject='Zillow Property Update',
-    html_content='<strong>First row of data:</strong>')
+    html_content=f"<h2>Please see the attached file for a list of properties in {city}, {state} with a drop in price</h2>")
 base64_csv = base64.b64encode(prop_sale_csv.encode())
 
 

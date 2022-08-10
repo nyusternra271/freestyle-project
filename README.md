@@ -68,4 +68,4 @@ You should see something that resembles the screenshot below:
 
 ![Zillow App Screenshot](https://github.com/nyusternra271/miscellaneous/blob/main/run-zillow-app-screenshot.png)
 
-<strong><br>Note that looking for homes in Austin, TX causes an error. For reason, the number of bedrooms is not returned by the API when searching for homes in this particular city (there may be others).</strong>
+<strong><br><em>Note that looking for homes in Austin, TX causes an error. For reason, the number of bedrooms is not returned by the API when searching for homes in this particular city (there may be others).</em></strong>

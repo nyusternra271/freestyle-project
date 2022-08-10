@@ -1,4 +1,4 @@
-# Python 2335 Summer 2022 Freestyle Project
+# Real State Price Alert via Email
 
 ## Team Members
 - Razi Ahmad
@@ -8,10 +8,12 @@
 
 ## How it Works
 
-This app sends a list of properties for sale in a particular city where there's been a price drop. It takes 3 inputs:
+This app sends a list of properties for sale in a particular city where there's been a price drop. The data comes from Zillow via an API from RapidAPI. It takes 3 inputs:
 - City
 - State
 - Email Address
+
+It returns listings that have been on Zillow ("Days on Zillow") for 90 days.
 
 ## Prerequisites
 In order to run this code, you'll need the following:

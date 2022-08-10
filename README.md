@@ -30,6 +30,10 @@ Follow these steps to sign up for a SendGrid API key:
     2. Create a new app from the developer dashboard (https://rapidapi.com/developer/dashboard). An API key is automatically generated:
     
     ![RapidAPI API Key Screenshot](https://github.com/nyusternra271/miscellaneous/blob/main/rapidapi-key-screenshot.png)
+    
+    3. Click on the eye icon to reveal the API key. Make a copy and put it in your .env file in step 4 of the setup instructions below.
+    4. Subscribe to the Zillow API here: https://rapidapi.com/s.mahmoud97/api/zillow56/
+<br><strong><em> Note that there are four plans available, including a free one (Basic). The Basic plan limits you to 30 API requests per month; each subsequent request costs $0.05. For testing purposes, the Basic plan should be sufficient.</em></strong>
 ## Setup Instructions
 
 1. Set up a new Anaconda environment:

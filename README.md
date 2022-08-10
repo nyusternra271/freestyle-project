@@ -29,6 +29,7 @@ Follow these steps to sign up for a SendGrid API key:
 <br>
 <br>
 To sign up for an RapidAPI key, follow these steps:
+
     1. Browse to https://rapidapi.com and create an account
     2. Create a new app from the developer dashboard (https://rapidapi.com/developer/dashboard). An API key is automatically generated:
     <br>

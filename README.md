@@ -68,4 +68,12 @@ You should see something that resembles the screenshot below:
 
 ![Zillow App Screenshot](https://github.com/nyusternra271/miscellaneous/blob/main/run-zillow-app-screenshot.png)
 
-<strong><br><em>Note that looking for homes in Austin, TX causes an error. For reason, the number of bedrooms is not returned by the API when searching for homes in this particular city (there may be others).</em></strong>
+You will also get an email with a CSV file named 'property_listings.csv' attached. Check your spam folder if you don't see the message in your inbox. The email will look like the following:
+
+![Zillow App Email](https://github.com/nyusternra271/miscellaneous/blob/main/zillow_app_email.png)
+
+<strong><br><em>Note that you may encounter a KeyError stating that one or more dataframe keys are not in the index depending on the city you search for. Some things you might want to try include:
+
+1. Searching for a different city
+2. Adjusting the Days on Zillow value (the "doz" key in the queryString dictionary in the code 
+</em></strong>

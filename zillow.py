@@ -18,7 +18,7 @@ print("WELCOME REAL ESTATE INVESTOR")
 print("-------------------")
 
 rapid_api_key = os.getenv("RAPID_API_KEY")
-city = input("Please enter a city (not Austin, TX): ")
+city = input("Please enter a city: ")
 state = input("Please enter a state: ")
 recipient_address = input("Please enter your email address:")
 search_str = city + ', ' + state
@@ -29,8 +29,8 @@ url = "https://zillow56.p.rapidapi.com/search"
 querystring = {"location":search_str,
                "home_type":"Houses",
                "minPrice":"500000",
-               "maxPrice":"2000000"
-
+               "maxPrice":"2000000",
+                "doz": "90"
                
                }
 
@@ -47,6 +47,9 @@ response_json = response.json()
 
 # View Data
 prop_sale = json_normalize(data=response_json['results'])
+if prop_sale.empty:
+    print('No results returned')
+    exit()
 
 #print('Num of rows:', len(prop_sale))
 #print('Num of cols:', len(prop_sale.columns))
@@ -65,7 +68,7 @@ base64_csv = base64.b64encode(prop_sale_csv.encode())
 
 
 message.attachment = Attachment(FileContent(base64_csv.decode()),
-                                    FileName('dataframe.csv'),
+                                    FileName('property_listings.csv'),
                                     FileType('text/csv'),
                                     Disposition('attachment'),
                                     ContentId('datafrane'))

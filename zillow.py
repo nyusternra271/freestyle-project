@@ -79,7 +79,7 @@ prop_sale_csv = prop_sale_filtered.to_csv(index=False)
 message = Mail(
     from_email='razi.ahmad1@gmail.com',
     to_emails=recipient_address,
-    subject='Zillow Property Update',
+    subject=f'Zillow Property Update for {city}, {state}',
     html_content=f"<h2>Please see the attached file for a list of properties in {city}, {state} with a drop in price</h2>")
 base64_csv = base64.b64encode(prop_sale_csv.encode())
 

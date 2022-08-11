@@ -78,4 +78,18 @@ You will also get an email with a CSV file named 'property_listings.csv' attache
 
 1. Searching for a different city
 2. Adjusting the Days on Zillow value (the "doz" key in the queryString dictionary in the code 
+3. Commenting out the following line:
+```sh
+prop_sale_subset = prop_sale[['country','state', 'city', 'zipcode' , 'streetAddress', 'homeType', 'price','lotAreaValue', 'livingArea', 'bathrooms', 'bedrooms', 'taxAssessedValue', 'rentZestimate', 'priceChange', 'priceReduction']]
+```
+and changing the following line:
+```sh
+prop_sale_filtered = prop_sale_subset.dropna(subset=['priceReduction'])
+```
+to
+```sh
+prop_sale_filtered = prop_sale.dropna(subset=['priceReduction'])
+```
+Doing this will result in all columns returned by the API to be added to the CSV, regardless of whether the desired columns listed in the prop_sale_subset list are actually returned or not. You may need to do this due to occasional inconsistency with the data returned by the API.
+
 </em></strong>

@@ -33,7 +33,7 @@ print("-------------------")
 rapid_api_key = os.getenv("RAPID_API_KEY")
 city = input("Please enter a city: ")
 state = input("Please enter a state: ")
-recipient_address = input("Please enter your email address:")
+recipient_address = input("Please enter your email address: ")
 search_str = city + ', ' + state
 print('Search string:', search_str)
 
@@ -94,7 +94,5 @@ try:
     sg = SendGridAPIClient(os.environ.get('SENDGRID_API_KEY'))
     response = sg.send(message)
     print(response.status_code)
-    print(response.body)
-    print(response.headers)
 except Exception as e:
     print(e.message)

@@ -89,7 +89,7 @@ message.attachment = Attachment(FileContent(base64_csv.decode()),
                                     FileType('text/csv'),
                                     Disposition('attachment'),
                                     ContentId('datafrane'))
-print(type(message))
+
 try:
     sg = SendGridAPIClient(os.environ.get('SENDGRID_API_KEY'))
     response = sg.send(message)

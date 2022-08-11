@@ -68,8 +68,8 @@ if prop_sale.empty:
 #print('Num of cols:', len(prop_sale.columns))
 
 # We can get a subset of the original dataframe using something like the following.
-# However, we've commented this out due to inconsistency with the data returned by the API.
-# The team has found that this works sporadically.
+# However, we've commented this out due to inconsistency with the data returned by the API - i.e., We intermittently received KeyErrors
+# when trying to utilize a subset of the dataframe.
 
 #prop_sale_subset = prop_sale[['country','state', 'city', 'zipcode' , 'streetAddress', 'homeType', 'price','lotAreaValue', 'livingArea', 'bathrooms', 'bedrooms', 'taxAssessedValue', 'rentZestimate', 'priceChange', 'priceReduction']]
 
